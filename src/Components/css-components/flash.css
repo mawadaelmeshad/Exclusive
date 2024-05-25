@@ -1,0 +1,131 @@
+.flash-main{
+    text-align: center;
+    margin-top: 5rem;
+    overflow: hidden;
+}
+.flash{
+    text-align: left;
+}
+.title{
+    color: black;
+    font-weight: bold;
+    margin-left: 8rem;
+    text-transform: capitalize;
+}
+.custom-hr{
+    width: 80%;
+    margin: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+.flash .cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-left: 8rem;
+    margin-right: 8rem;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.flash .small-title{
+    color: #DB4444;
+    font-weight: bold;
+    margin-left: 10rem;
+    padding-left: 1rem;
+    text-transform: capitalize;
+    position: relative;
+}
+.flash .small-title::before{
+    position: absolute;
+    content: "";
+    height: 135%;
+    background-color: #DB4444;
+    width: 18px;
+    border-radius: 4px;
+    margin-left: 15px;
+    top: -15%;
+    left: -3.5%;
+}
+
+
+.flash .custom-card{
+    position: relative;
+    background-color: #F5F5F5;
+    width: 15rem;
+    
+}
+.flash .card-img{
+    padding: 2rem;
+}
+.flash .percentage{
+    background-color: #DB4444;
+    color: white;
+    font-size: .9rem;
+    font-weight: lighter;
+    border-radius: 4px;
+    padding: 4px 16px;
+    position: absolute;
+    top: 7%;
+    left: 6%;
+}
+.flash .icons{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 3%;
+    left: 56%;
+    align-items: center;
+    gap: 1rem;
+}
+.flash .icons span{
+    background-color: white;
+    border-radius: 100%;
+    width: 2rem;
+    text-align: center;
+}
+.flash .flash-title{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+.flash .price{
+    color: red;
+    margin-right: 1rem;
+}
+.flash .stars .star{
+    color: #FFAD33;
+
+}
+.flash-main .orange-btn{
+    margin-top: 2rem;
+    font-size: .8rem;
+    text-transform: capitalize;
+    width: 12rem;
+    background-color: #DB4444;
+    border-radius: 2px;
+
+}
+.flash-main .orange-btn:hover{
+    opacity: .5;
+    background-color: #DB4444;
+}
+.flash .custom-card-icon{
+    width: 10rem;
+    height: 9rem;
+    border: 1px solid #cac8c8;
+    border-radius: 4px;
+    text-transform: capitalize;
+    text-align: center;
+    padding-top: 2rem;
+}
+.flash .custom-card-icon .icon-category{
+    font-size: 3rem;
+}
+.flash .custom-card-icon p{
+    padding-top: 1rem;
+}
+.flash-main .img{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}

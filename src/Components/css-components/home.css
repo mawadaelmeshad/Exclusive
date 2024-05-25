@@ -1,0 +1,42 @@
+.home{
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(12, 1fr); /* Creates 12 equal columns */
+    /* grid-template-columns: repeat(2,auto); */
+    /* display: flex;
+    flex-direction: row;
+    gap: 8rem; */
+    margin-top: 2rem;
+    overflow: hidden;
+}
+.home img{
+    grid-column: span 9;
+    margin-left: -12rem;
+    /* grid-template-columns: min-content; */
+}
+.home ul{
+    grid-column: span 3;
+    list-style: none;
+    color: black;
+    position: relative;
+}
+.home ul li{
+    margin-top: .5rem;
+}
+.home ul::after{
+    position: absolute;
+    content: "";
+    height: 127%;
+    background-color: #cac8c8;
+    width: 1px;
+    margin-left: 15px;
+    top: -5%;
+    left: 120%;
+
+}
+.home .arrow{
+    padding-left: .5rem;
+}
+.home .arrow2{
+    padding-left: 1.8rem;
+}

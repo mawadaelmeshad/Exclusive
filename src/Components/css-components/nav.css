@@ -1,0 +1,45 @@
+#my-nav{
+    margin-top: 1.5rem;
+    background-color: white;
+    box-shadow: none;
+    border-bottom: 1px solid #cac8c8;
+    color: black;
+}
+#logo{
+    font-weight: bold;
+    margin-left: 4rem;
+    margin-right: 8rem;
+}
+#home{
+    text-decoration: underline;
+    color: black;
+    margin-left: 4rem;
+}
+.item{
+    color: black;
+    margin-right: 1.5rem;
+}
+#search-input{
+    position: relative;
+    margin-left: 8rem;
+    background-color: #F5F5F5;
+    border: none;
+    color: 7D8184;
+    width: 16rem;
+}
+.icon-search{
+    position: absolute;
+    top: 9px;
+    left: 88%;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 9px;
+    font-size: 1.2rem;
+    margin-left: 4rem;
+}

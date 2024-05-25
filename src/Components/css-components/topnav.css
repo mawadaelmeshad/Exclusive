@@ -1,0 +1,25 @@
+.top-nav{
+    position: sticky;
+    background-color: black;
+    color: white;
+    font-size: .9rem;
+    text-align: center;
+    display: flex;
+    /* gap: 10rem; */
+    justify-content: space-evenly;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+.top-nav p{
+    padding-top: 1rem;
+}
+.top-nav p a{
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.top-nav select{
+    background-color: black;
+    color: white;
+    border: none;
+}
