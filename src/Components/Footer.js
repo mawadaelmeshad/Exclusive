@@ -5,7 +5,7 @@ import GooglePlay from '../images/google-play.png';
 
 function Footer() {
   return (
-    <MDBFooter bgColor='black' className='text-center text-lg-start text-light mt-5'>
+    <MDBFooter bgColor='black' className='text-center text-lg-start text-light mt-5' style={{fontFamily:"Poppins"}}>
       <section className='d-flex justify-content-center justify-content-lg-between'>
       </section>
 

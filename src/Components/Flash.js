@@ -1,28 +1,64 @@
 import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBIcon } from 'mdb-react-ui-kit';
 import flash1 from '../images/flash1.png';
-import Home2 from '../images/home2.png';
-import flash2 from '../images/flash2.png';
-import flash3 from '../images/flash3.png';
+import React, { useEffect, useState } from 'react';
 import './css-components/flash.css'
-import Home from './Home';
+import Home2 from '../images/home2.png';
+
 function Flash(){
+    const [data, setData] = useState([]);
+    const [data2, setData2] = useState([]);
+    const [data3, setData3] = useState([]);
+
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                if (Array.isArray(data)) {
+                    // Set the first 4 items to data
+                    const firstFourProducts = data.slice(0, 4);
+                    setData(firstFourProducts);
+
+                    // Set items from index 12 to 16 to data3
+                    const limitedProducts = data.slice(12, 16);
+                    setData3(limitedProducts);
+
+                    const ourProducts = data.slice(10, 18);
+                    setData2(ourProducts);
+                } else {
+                    console.error('Unexpected data structure:', data);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+
+ 
+
     return(
         <div className='flash-main'>
             <div className='flash'>
                 <p className='small-title'>Today's</p>
             <h2 className='title'>Flash Sales</h2>
             <div className='cards'>
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
+            {data.map((item, index) => (
+            <div key={index} className='card-container'>
+              <MDBCard className='custom-card'>
+                <MDBCardImage src={item.image} alt={item.title} className='card-img' />
+                <div className='icons'>
+                  <span><MDBIcon far icon="heart" className='icon' /></span>
+                  <span><MDBIcon far icon="eye" className='icon' /></span>
+                </div>
+                <span className='percentage'>-40%</span>
+    
+              </MDBCard>
+              <h3 className='flash-title'>{item.title.substring(0,10)}</h3>
+                        <span className='price'>{item.price}$</span> <del>160$</del>
                         <div className='stars'>
                         <MDBIcon fas icon="star" className='star'/>
                         <MDBIcon fas icon="star" className='star'/>
@@ -31,112 +67,52 @@ function Flash(){
                         <MDBIcon fas icon="star" className='star'/>
 
                         </div>
-                </div> 
+              
+            </div>
+        ))}
 
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
-                        <div className='stars'>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-
-                        </div>
-                </div> 
-
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
-                        <div className='stars'>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-
-                        </div>
-                </div> 
-
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
-                        <div className='stars'>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-
-                        </div>
-                </div> 
             </div>
             </div>
-            <MDBBtn className='orange-btn'>view all Products</MDBBtn>
+            <button className='orange-btn'>view all Products</button>
             <hr className='custom-hr'/>
 
             <div className='flash'>
                 <p className='small-title'>Categories</p>
             <h2 className='title'>browse by category</h2>
             <div className='cards'>
-                <div className='card-container'>
+                <div className='card-container card2'>
                     <div className='custom-card-icon'>
                     <MDBIcon fas icon="mobile-alt" className='icon-category' />
-                    <p>phones</p>
+                    <p>Phones</p>
                     </div>
                 </div> 
 
-                <div className='card-container'>
+                <div className='card-container card2'>
                     <div className='custom-card-icon'>
-                    <MDBIcon fas icon="mobile-alt" className='icon-category' />
-                    <p>phones</p>
+                    <MDBIcon fas icon="desktop"className='icon-category' />
+                    <p>Computers</p>
                     </div>
                 </div> 
 
-                <div className='card-container'>
+                <div className='card-container card2'>
                     <div className='custom-card-icon'>
-                    <MDBIcon fas icon="mobile-alt" className='icon-category' />
-                    <p>phones</p>
+                    <MDBIcon far icon="clock"  className='icon-category' />
+                    <p>SmartWatch</p>
                     </div>
                 </div> 
 
 
-                <div className='card-container'>
+                <div className='card-container card2'>
                     <div className='custom-card-icon'>
-                    <MDBIcon fas icon="mobile-alt" className='icon-category' />
-                    <p>phones</p>
+                    <MDBIcon fas icon="camera" className='icon-category' />
+                    <p>Camera</p>
                     </div>
                 </div> 
 
-                <div className='card-container'>
+                <div className='card-container card2'>
                     <div className='custom-card-icon'>
-                    <MDBIcon fas icon="mobile-alt" className='icon-category' />
-                    <p>phones</p>
+                    <MDBIcon fas icon="headphones-alt" className='icon-category' />
+                    <p>HeadPhones</p>
                     </div>
                 </div> 
 
@@ -145,19 +121,21 @@ function Flash(){
             <hr className='custom-hr'/>
             <div className='flash'>
                 <p className='small-title'>this month</p>
-            <h2 className='title'>best selling Products</h2>
+            <h2 className='title best-title'>best selling Products  <button className='orange-btn view-btn'>view All</button></h2>
             <div className='cards'>
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
+            {data3.map((item, index) => (
+            <div key={index} className='card-container'>
+              <MDBCard className='custom-card'>
+                <MDBCardImage src={item.image} alt={item.title} className='card-img' />
+                <div className='icons'>
+                  <span><MDBIcon far icon="heart" className='icon' /></span>
+                  <span><MDBIcon far icon="eye" className='icon' /></span>
+                </div>
+              
+    
+              </MDBCard>
+              <h3 className='flash-title'>{item.title.substring(0,10)}</h3>
+                        <span className='price'>{item.price}$</span>
                         <div className='stars'>
                         <MDBIcon fas icon="star" className='star'/>
                         <MDBIcon fas icon="star" className='star'/>
@@ -166,70 +144,10 @@ function Flash(){
                         <MDBIcon fas icon="star" className='star'/>
 
                         </div>
-                </div> 
+              
+            </div>
+        ))}
 
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
-                        <div className='stars'>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-
-                        </div>
-                </div> 
-
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
-                        <div className='stars'>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-
-                        </div>
-                </div> 
-
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
-                        <div className='stars'>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-
-                        </div>
-                </div> 
             </div>
             </div>
 
@@ -238,20 +156,22 @@ function Flash(){
             </div>
 
             <div className='flash'>
-                <p className='small-title'>this month</p>
-            <h2 className='title'>best selling Products</h2>
+                <p className='small-title'>our Products</p>
+            <h2 className='title'>explore our Products</h2>
             <div className='cards'>
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
+            {data2.map((item, index) => (
+            <div key={index} className='card-container'>
+              <MDBCard className='custom-card'>
+                <MDBCardImage src={item.image} alt={item.title} className='card-img' />
+                <div className='icons'>
+                  <span><MDBIcon far icon="heart" className='icon' /></span>
+                  <span><MDBIcon far icon="eye" className='icon' /></span>
+                </div>
+              
+    
+              </MDBCard>
+              <h3 className='flash-title'>{item.title.substring(0,10)}</h3>
+                        <span className='price'>{item.price}$</span>
                         <div className='stars'>
                         <MDBIcon fas icon="star" className='star'/>
                         <MDBIcon fas icon="star" className='star'/>
@@ -260,75 +180,44 @@ function Flash(){
                         <MDBIcon fas icon="star" className='star'/>
 
                         </div>
-                </div> 
-
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
-                        <div className='stars'>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-
-                        </div>
-                </div> 
-
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
-                        <div className='stars'>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-
-                        </div>
-                </div> 
-
-                <div className='card-container'>
-                <MDBCard className='custom-card'>
-                        <MDBCardImage src={flash1} alt='flash photo' className='card-img' />
-                        <div className='icons'>
-                        <span><MDBIcon far icon="heart" className='icon' /></span>
-                        <span><MDBIcon far icon="eye" className='icon' /></span>
-                        </div>
-                        <span className='percentage'>-40%</span>
-                    </MDBCard>
-                    <h3 className='flash-title'>HAVIT HV-G92 Gamepad</h3>
-                        <span className='price'>120$</span> <del>160$</del>
-                        <div className='stars'>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-                        <MDBIcon fas icon="star" className='star'/>
-
-                        </div>
-                </div> 
+              
+            </div>
+          ))}
             </div>
             </div>
+            <button className='orange-btn'>view all Products</button>
+            <div className='features'>
+                <div className='whole-card'>
+                    <div className='icon-container'>
+                        <MDBIcon fas icon="truck" className='icon-inside'/>
+                    </div>
+                    <h2>free and fast delivery</h2>
+                    <p>Free delivery for all orders over $140</p>
+                </div>
+                
+                <div className='whole-card'>
+                    <div className='icon-container'>
+                        <MDBIcon fas icon="headphones" className='icon-inside'/>
+                    </div>
+                    <h2>24/7 CUSTOMER SERVICE</h2>
+                    <p>Free delivery for all orders over $140</p>
+                </div>
+
+                <div className='whole-card'>
+                    <div className='icon-container'>
+                    <MDBIcon fas icon="shield-alt"c className='icon-inside' />
+                    </div>
+                    <h2>MONEY BACK GUARANTEE</h2>
+                    <p>Free delivery for all orders over $140</p>
+                </div>
+                
+                
+            </div>
+
 
 
     </div>
     )
+
 }
 export default Flash;

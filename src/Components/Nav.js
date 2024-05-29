@@ -34,20 +34,20 @@ return (
         <MDBCollapse open={openNavColor} navbar>
           <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
             <MDBNavbarItem className='active'>
-              <MDBNavbarLink aria-current='page' href='#' id='home' className='item'>
+              <MDBNavbarLink aria-current='page' href='./' className='item'>
                 Home
               </MDBNavbarLink>
             </MDBNavbarItem>
-            <MDBNavbarItem className='item'>
-              <MDBNavbarLink href='#' className='item'>Contact</MDBNavbarLink>
+            <MDBNavbarItem className='active'>
+              <MDBNavbarLink href='./contact' className='item'>Contact</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem className='item'>
-              <MDBNavbarLink href='#'>About</MDBNavbarLink>
+              <MDBNavbarLink href='./about'>About</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem className='item'>
-              <MDBNavbarLink href='#'>Sign up</MDBNavbarLink>
+              <MDBNavbarLink href='./signup'>Sign up</MDBNavbarLink>
             </MDBNavbarItem>
-            <form className='d-flex input-group w-auto'>
+            <form className='d-flex input-group w-auto form-search'>
               <input type='search' className='form-control' placeholder='What are you looking for?' aria-label='Search' id='search-input' />
               <MDBIcon fas icon="search" className='icon-search'/>
             </form>

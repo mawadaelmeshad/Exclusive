@@ -1,9 +1,11 @@
 #my-nav{
+    font-family: "Poppins", sans-serif;
     margin-top: 1.5rem;
     background-color: white;
     box-shadow: none;
     border-bottom: 1px solid #cac8c8;
     color: black;
+    overflow: hidden;
 }
 #logo{
     font-weight: bold;
@@ -24,22 +26,36 @@
     margin-left: 8rem;
     background-color: #F5F5F5;
     border: none;
-    color: 7D8184;
+    color: #7D8184;
     width: 16rem;
+    font-size: .9rem;
 }
 .icon-search{
     position: absolute;
     top: 9px;
-    left: 88%;
-    font-size: 1.2rem;
-    font-weight: lighter;
+    left: 92%;
+    font-size: 1rem;
+    font-weight:100;
     
 }
 .icons{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 2rem;
     margin-top: 9px;
     font-size: 1.2rem;
     margin-left: 4rem;
+}
+@media(max-width:990px){
+    #search-input{
+        display: none;
+        
+    }
+    .form-search{
+        display: none;
+    }
+
+
 }

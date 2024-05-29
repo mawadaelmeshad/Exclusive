@@ -20,7 +20,7 @@ function Home () {
                 <li>Groceries & Pets</li>
                 <li>Health & Beauty</li>
             </ul>
-            <img src={home} alt="home photo" />
+            <img src={home} alt="home photo" className='home-img'/>
 
           
         </div>
