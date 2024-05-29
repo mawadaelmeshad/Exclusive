@@ -20,7 +20,7 @@
     border-radius: 4px;
     padding: 2rem;
     /* border: 1px solid black; */
-    box-shadow: 0 4px 8px 0 rgba(216, 211, 211, 0.762), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 1px 0 0 rgba(216, 211, 211, 0.762), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 .contact .form-contact input{
