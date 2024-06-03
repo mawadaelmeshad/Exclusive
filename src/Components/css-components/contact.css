@@ -13,14 +13,13 @@
 .contact .form-contact{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     gap: 2rem;
-    width:fit-content;
-    /* height: 33rem; */
+    width: 55rem;
     border-radius: 4px;
     padding: 2rem;
-    /* border: 1px solid black; */
     box-shadow: 0 1px 1px 0 0 rgba(216, 211, 211, 0.762), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: fit-content;
 
 }
 .contact .form-contact input{
@@ -41,7 +40,7 @@
     border: none;
     display: block;
     margin-left: 2rem;
-    width: 90%;
+    width: 92%;
 }
 .contact .orange-btn{
     background-color: #DB4444;
@@ -49,8 +48,12 @@
     height: 3rem;
     font-size: 1rem;
     font-weight: 400;
-    margin-left: 39rem;
+    margin-right: 2rem; 
     margin-top: 3rem;
+    float: right;
+    /* left: 77%;
+    top: 70%;
+    position:absolute; */
 }
 .contact .orange-btn:hover{
     opacity: .5;

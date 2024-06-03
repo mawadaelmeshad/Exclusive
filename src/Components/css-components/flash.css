@@ -59,9 +59,11 @@
     height: 17rem;
     
 }
+
 .flash .card-img{
     padding: 2rem;
-    width: 13rem;
+    width: 14rem;
+    height: 14rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -94,6 +96,16 @@
     font-size: 1.2rem;
     font-weight: bold;
     margin-top: 1rem;
+}
+.flash .custom-card .add-to-cart{
+    background-color: black;
+    color: white;
+    height: 3rem;
+    font-size: 1rem;
+    opacity: 0;
+}
+.flash .custom-card :hover{
+    opacity: 1;
 }
 .flash .price{
     color: red;

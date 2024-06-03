@@ -8,14 +8,14 @@ function Contact(){
             <div className="call">
                 <MDBCard className="contact-card">
                     <div className="title-holder">
-                        <MDBIcon far icon="heart" className="icon-orange" />
+                        <MDBIcon fas icon="phone-alt" className="icon-orange" />
                         <span className="title-contact">call to us</span>
                     </div>
                     <p>We are available 24/7, 7 days a week.</p>
                     <p>Phone: +8801611112222</p>
                     <hr/>
                     <div className="title-holder">
-                        <MDBIcon far icon="heart" className="icon-orange" />
+                        <MDBIcon far icon="envelope" className="icon-orange" />
                         <span className="title-contact">write to us</span>
                     </div>
                     <p>Fill out our form and we will contact you within 24 hours.</p>

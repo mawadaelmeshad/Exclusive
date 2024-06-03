@@ -50,6 +50,7 @@ function Flash(){
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
+                <button class="add-to-cart">Add to Cart</button>
                 <div className='icons'>
                   <span><MDBIcon far icon="heart" className='icon' /></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
@@ -67,10 +68,11 @@ function Flash(){
                         <MDBIcon fas icon="star" className='star'/>
 
                         </div>
+                        
               
             </div>
         ))}
-
+    
             </div>
             </div>
             <button className='orange-btn'>view all Products</button>
@@ -127,6 +129,8 @@ function Flash(){
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
+                <button class="add-to-cart">Add to Cart</button>
+
                 <div className='icons'>
                   <span><MDBIcon far icon="heart" className='icon' /></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
@@ -163,6 +167,8 @@ function Flash(){
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
+                <button class="add-to-cart">Add to Cart</button>
+
                 <div className='icons'>
                   <span><MDBIcon far icon="heart" className='icon' /></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>

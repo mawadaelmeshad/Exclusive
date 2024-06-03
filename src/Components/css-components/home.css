@@ -27,11 +27,11 @@
 .home ul::after{
     position: absolute;
     content: "";
-    height: 114%;
+    height: 122%;
     background-color: #cac8c8;
     width: 1px;
     margin-left: 15px;
-    top: -9%;
+    top: 2%;
     left: 120%;
 
 }

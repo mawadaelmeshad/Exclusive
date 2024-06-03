@@ -1,0 +1,101 @@
+.checkout-contain{
+    font-family: "Poppins", sans-serif;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-top: 8rem;
+
+}
+.checkout{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    flex-wrap: wrap;
+
+}
+.checkout-contain h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: black;
+    letter-spacing: .1rem;
+    margin-bottom: 2rem;
+}
+.checkout form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    /* gap: 2rem; */
+}
+.checkout form input{
+    padding-left: .3rem;
+    width: 26rem;
+    background-color: #F5F5F5;
+    border: none;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-radius: 2px;
+    margin-top: -1.5rem;
+}
+.checkout form label{
+    font-size: .8rem;
+    text-transform: capitalize;
+    color: grey;
+    font-weight: 400;
+}
+.checkout form label span{
+    color: #DB4444;
+}
+.checkout .contain-check{
+    margin-left: -8rem;
+}
+.checkout .contain-check span{
+    margin-left: -8rem;   
+}
+.checkout .info{
+    display: flex;
+    flex-direction: column;
+}
+.checkout .info span{
+    text-transform: capitalize;
+}
+.checkout .spanOne{
+    margin-right: 18rem;
+}
+
+.checkout .orange-btn{
+    margin-top: 2rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+    width: 13rem;
+    height: 2.8rem;
+    background-color: #DB4444;
+    border: 1px solid #DB4444;
+    border-radius: 4px;
+    color: white;
+    border-radius: 2px;
+
+}
+.checkout .orange-btn:hover{
+    opacity: .5;
+    background-color: #DB4444;
+}
+.checkout .contain-btns form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.checkout .contain-btns input{
+    margin-top: 2rem;
+    width: 17rem;
+    height: 2.8rem;
+    /* height: 2rem; */
+    border: 1px solid black;
+    background-color: white;
+    padding-left: 1.5rem;
+    border-radius: 2px;
+}
+.checkout .contain-btns form .radio{
+    width:1rem;
+    display: block;
+}
