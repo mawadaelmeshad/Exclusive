@@ -106,6 +106,7 @@
 }
 .flash .custom-card :hover{
     opacity: 1;
+    transition: ease .5s;
 }
 .flash .price{
     color: red;
@@ -224,4 +225,15 @@
     width: 10rem;
     margin-left: 8rem;
     margin-right: 8rem;
+}
+@media(max-width:375px){
+    .title{
+        margin-left: 4rem;
+    }
+    .flash .small-title{
+        margin-left: 5.2rem;
+    }
+    .flash .small-title::before{
+        margin-left: 15px;
+    }
 }

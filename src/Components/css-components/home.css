@@ -31,7 +31,7 @@
     background-color: #cac8c8;
     width: 1px;
     margin-left: 15px;
-    top: 2%;
+    top: 0%;
     left: 120%;
 
 }
@@ -42,11 +42,24 @@
     padding-left: 1.8rem;
 }
 @media(max-width:870px){
+    .home{
+        margin-left: 0;
+        padding-left: 0;
+        justify-content: center;
+    }
     .home ul{
+        margin-left: 0;
+        padding-left: 0;
+        margin-top: 2rem;
+        /* display: none; */
+    }
+    .home ul::after{
         display: none;
     }
     .home img{
-        width: 100%;
+        /* width: 45rem;
+        height: 45rem; */
+        display: none;
     }
     .home{
         margin-top: 0;
