@@ -68,6 +68,9 @@
     color: white;
     font-size: .8rem;
 }
+.heart-icon[current-count='0']::after {
+    display: none; /* Hide when count is 0 */
+}
 
 /* .user-icon {
     position: relative;

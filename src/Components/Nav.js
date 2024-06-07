@@ -30,6 +30,8 @@ const Nav = () => {
     };
 
     const [currentCount, setCurrentCount] = useState(0);
+    const [CountCart, setCountCart] = useState(0);
+
 
 
     const handleLogout = () => {
@@ -89,7 +91,7 @@ return (
             </form>
             <MDBNavbarItem className='icons'>
                 <MDBIcon far icon="heart" className='heart-icon'  current-count={currentCount} setCurrentCount={setCurrentCount} currentCount={currentCount} />
-                <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count="8" />
+                <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count={CountCart} setCountCart={setCountCart} CountCart={CountCart}  />
                 
                 {isLoggedIn ? (
                   <div className='user-icon'>
@@ -131,7 +133,7 @@ return (
       </MDBContainer>
     </MDBNavbar>
     <Home />
-    <Flash setCurrentCount={setCurrentCount} currentCount={currentCount} />
+    <Flash setCurrentCount={setCurrentCount} currentCount={currentCount} setCountCart={setCountCart} CountCart={CountCart} />
 
   </>
 );

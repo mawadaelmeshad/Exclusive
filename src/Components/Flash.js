@@ -3,7 +3,7 @@ import flash1 from '../images/flash1.png';
 import React, { useEffect, useState } from 'react';
 import './css-components/flash.css'
 import Home2 from '../images/home2.png';
-const Flash = ({ setCurrentCount, currentCount }) => {
+const Flash = ({ setCurrentCount, currentCount , setCountCart }) => {
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
     const [data3, setData3] = useState([]);
@@ -14,7 +14,15 @@ const Flash = ({ setCurrentCount, currentCount }) => {
       setIsActive(!isActive);
       setCurrentCount((prevCount) => (parseInt(prevCount) + 1).toString());
 
+
     };
+
+    const handleClickCart = () => {
+        setIsActive(!isActive);
+        setCountCart((prevCount) => (parseInt(prevCount) + 1).toString());
+  
+  
+      };
 
 
     useEffect(() => {
@@ -58,7 +66,7 @@ const Flash = ({ setCurrentCount, currentCount }) => {
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart"   onClick={handleClickCart}>Add to Cart</button>
                 <div className='icons'>
                   <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={handleClick}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
@@ -140,7 +148,7 @@ const Flash = ({ setCurrentCount, currentCount }) => {
                 <button class="add-to-cart">Add to Cart</button>
 
                 <div className='icons'>
-                  <span><MDBIcon far icon="heart" className='icon' /></span>
+                <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={handleClick}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
                 </div>
               
@@ -178,7 +186,7 @@ const Flash = ({ setCurrentCount, currentCount }) => {
                 <button class="add-to-cart">Add to Cart</button>
 
                 <div className='icons'>
-                  <span><MDBIcon far icon="heart" className='icon' /></span>
+                <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={handleClick}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
                 </div>
               
