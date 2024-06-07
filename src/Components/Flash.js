@@ -3,11 +3,19 @@ import flash1 from '../images/flash1.png';
 import React, { useEffect, useState } from 'react';
 import './css-components/flash.css'
 import Home2 from '../images/home2.png';
-
-function Flash(){
+const Flash = ({ setCurrentCount, currentCount }) => {
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
     const [data3, setData3] = useState([]);
+
+    const [isActive, setIsActive] = useState(false);
+
+    const handleClick = () => {
+      setIsActive(!isActive);
+      setCurrentCount((prevCount) => (parseInt(prevCount) + 1).toString());
+
+    };
+
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -52,7 +60,7 @@ function Flash(){
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
                 <button class="add-to-cart">Add to Cart</button>
                 <div className='icons'>
-                  <span><MDBIcon far icon="heart" className='icon' /></span>
+                  <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={handleClick}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
                 </div>
                 <span className='percentage'>-40%</span>
@@ -225,5 +233,5 @@ function Flash(){
     </div>
     )
 
-}
+};
 export default Flash;

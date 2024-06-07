@@ -5,7 +5,7 @@
     box-shadow: none;
     border-bottom: 1px solid #cac8c8;
     color: black;
-    overflow: hidden;
+    overflow: visible;
 }
 #logo{
     font-weight: bold;
@@ -36,17 +36,83 @@
     left: 92%;
     font-size: 1rem;
     font-weight:100;
+    display: block;
     
 }
 .icons{
     display: flex;
     /* justify-content: space-between; */
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
+    /* flex-wrap: wrap; */
+    gap: 1rem;
     margin-top: 9px;
     font-size: 1.2rem;
     margin-left: 4rem;
+}
+.heart-icon{
+    position: relative;
+}
+.heart-icon::after{
+    content: attr(current-count);
+    position: absolute;
+    top: -6px;
+    right: -10%;
+    width: 16px;
+    height: 16px;
+    border-radius: 63%;
+    background-color: #DB4444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 14px;
+    color: white;
+    font-size: .8rem;
+}
+
+/* .user-icon {
+    position: relative;
+    margin-top: -4px;
+    cursor: pointer;
+    display: block;
+}
+.menu-user{
+    display: none;
+} */
+
+.user-icon {
+    position: relative;
+    margin-top: -4px;
+    cursor: pointer;
+    display: block;
+}
+.menu-user {
+    display: none;
+    position: absolute;
+    /* right: .2rem; */
+    top: 90%;
+    left: -6rem;
+    transform: translateX(-50%); 
+    /* background-color: rgb(67, 64, 64); */
+    background: linear-gradient(rgba(11, 10, 10, 0.8), rgba(39, 38, 38, 0.9)); /* Less transparent gradient */
+    color: white;
+    border-radius: 4px;
+    padding: 1rem;
+    width: 220px;
+    z-index: 2;
+    font-size: 1rem;
+    cursor:default;
+}
+.menu-user.active {
+    display: block;
+}
+.menu-user .line{
+    display: flex;
+    gap: .5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+.line .icon-line{
+    padding-top: .3rem;
 }
 @media(max-width:990px){
     #search-input{
@@ -55,6 +121,12 @@
     }
     .form-search{
         display: none;
+    }
+    .icon-search{
+        visibility: hidden;
+    }
+    .icons{
+        margin-left: .2rem;
     }
 
 

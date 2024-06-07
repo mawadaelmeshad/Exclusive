@@ -8,6 +8,7 @@
     /* grid-template-columns: repeat(12, 1fr);  */
     margin-top: 2rem;
     overflow: hidden;
+    z-index: 0;
 }
 .home img{
     /* grid-column: span 9; */

@@ -1,5 +1,6 @@
-import { MDBBtn } from "mdb-react-ui-kit";
+import { MDBBtn, MDBCheckbox } from "mdb-react-ui-kit";
 import './css-components/checkout.css';
+import pay from '../images/payment.png';
 function Checkout(){
     return(
         <div className="checkout-contain">
@@ -28,9 +29,13 @@ function Checkout(){
 
                     <label for=''>email address <span>*</span></label>
                     <input type='email'  required/>
-                    <div className="contain-check">
+                    {/* <div className="contain-check">
                     <input type="checkbox"/> <span>Save this information for faster check-out next time</span>
-                    </div>
+                    </div> */}
+                 
+        {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='save this info' className="check"/> */}
+    
+
 
                
                 
@@ -61,11 +66,11 @@ function Checkout(){
                 <div className="contain-btns">
                  <form>
                    
-                  
                     <input type="radio" id="bank" name="bank" value="Bank" className="radio"/>
-                    <label for="html">Bank</label>
-                    <input type="radio" id="bank" name="bank" value="Bank"  className="radio" />
 
+                    {/* <label for="html">Bank <img src={pay} alt="payment" className="payment"/> </label> */}
+                    <input type="radio" id="bank" name="bank" value="Bank"  className="radio" />
+                    {/* <label for="html">Cache on delivery </label> */}
                     <input type="text" placeholder="Coupon Code"/>
                     <button className='orange-btn'>Apply Coupon</button>
                  </form>

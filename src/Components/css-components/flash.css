@@ -82,9 +82,12 @@
     flex-direction: column;
     position: absolute;
     top: 3%;
-    left: 56%;
+    left:57%;
     align-items: center;
     gap: 1rem;
+}
+.flash .icon-fav{
+    cursor: pointer;
 }
 .flash .icons span{
     background-color: white;
@@ -225,6 +228,11 @@
     width: 10rem;
     margin-left: 8rem;
     margin-right: 8rem;
+}
+@media(max-width:989px){
+    .flash .icons{
+        left:80%;
+    }
 }
 @media(max-width:375px){
     .title{

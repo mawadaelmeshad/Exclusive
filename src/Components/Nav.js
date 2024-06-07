@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   MDBNavbar,
   MDBContainer,
@@ -12,16 +12,52 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import './css-components/nav.css';
+import Flash from './Flash';
+import Home from './Home';
 
-function Nav() {
-const [openNavColor, setOpenNavColor] = useState(false);
+
+const Nav = () => {
+    const [openNavColor, setOpenNavColor] = useState(false);
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false); 
+    const checkLoginStatus = () => {
+      // Check if user is logged in based on the presence of token in local storage
+      if (window.localStorage.getItem('token')) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    };
+
+    const [currentCount, setCurrentCount] = useState(0);
+
+
+    const handleLogout = () => {
+  
+        localStorage.removeItem('token');
+        setIsLoggedIn(false);
+        window.location.href = '/login';
+      };
+      
+    
+
+    useEffect(() => {
+      checkLoginStatus();
+    }, [isLoggedIn]);
+
+    const [isActive, setIsActive] = useState(false);
+
+    const handleClick = () => {
+      setIsActive(!isActive);
+    };
 
 return (
   <>
-    <MDBNavbar expand='lg' id='my-nav'>
+    <MDBNavbar expand='xl' id='my-nav'>
       <MDBContainer fluid>
         <MDBNavbarBrand href='#' id='logo'>Exclusive</MDBNavbarBrand>
         <MDBNavbarToggler
+        className="navbar-toggler"
           type='button'
           data-target='#navbarColor02'
           aria-controls='navbarColor02'
@@ -52,13 +88,50 @@ return (
               <MDBIcon fas icon="search" className='icon-search'/>
             </form>
             <MDBNavbarItem className='icons'>
-                <MDBIcon far icon="heart" />
-                <MDBIcon fas icon="shopping-cart" />
+                <MDBIcon far icon="heart" className='heart-icon'  current-count={currentCount} setCurrentCount={setCurrentCount} currentCount={currentCount} />
+                <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count="8" />
+                
+                {isLoggedIn ? (
+                  <div className='user-icon'>
+        <MDBIcon far icon="user"
+        className={`user-icon ${isActive ? 'active' : ''}`} 
+        onClick={handleClick}/>
+        <div className={`menu-user ${isActive ? 'active' : ''}`}>
+          <div className='line'>
+            <MDBIcon far icon="user" className='icon-line' />
+            <span>Manage Account</span>
+          </div>
+
+          <div className='line'>
+          <MDBIcon fas icon="shopping-bag" className='icon-line' />
+            <span>My Order</span>
+          </div>
+
+          <div className='line'>
+          <MDBIcon far icon="times-circle" className='icon-line'/>
+            <span>My Cancellations</span>
+          </div>
+
+          <div className='line'>
+          <MDBIcon far icon="star"  className='icon-line' />
+            <span>My Reviews</span>
+          </div>
+
+          <div className='line'>
+          <MDBIcon fas icon="sign-out-alt" className='icon-line' />
+            <span onClick={handleLogout}>Logout</span>
+          </div>
+
+        </div>
+        </div>
+      ) : null }
             </MDBNavbarItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>
+    <Home />
+    <Flash setCurrentCount={setCurrentCount} currentCount={currentCount} />
 
   </>
 );
