@@ -18,8 +18,19 @@
     margin-left: 4rem;
 }
 .item{
-    color: black;
-    margin-right: 1.5rem;
+    color: black !important;
+    margin-top: 1.5rem;
+    margin-right: 2rem;
+    position: relative;
+}
+.item.active::after{
+    position: absolute;
+    content: "";
+    background-color: black;
+    width: 3.3rem;
+    height: .2px;
+    top: 96%;
+    left: 0;
 }
 #search-input{
     position: relative;
@@ -114,6 +125,18 @@
     margin-top: 1rem;
     cursor: pointer;
 }
+.menu-user .line:hover{
+    background-color: white;
+    color: black;
+}
+.menu-user .line span:hover{
+    background-color: white;
+    color: black;
+}
+.menu-user .line .link-list{
+    color: white;
+}
+
 .line .icon-line{
     padding-top: .3rem;
 }

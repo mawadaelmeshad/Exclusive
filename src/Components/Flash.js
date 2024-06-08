@@ -3,26 +3,64 @@ import flash1 from '../images/flash1.png';
 import React, { useEffect, useState } from 'react';
 import './css-components/flash.css'
 import Home2 from '../images/home2.png';
-const Flash = ({ setCurrentCount, currentCount , setCountCart }) => {
+const Flash = () => {
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
     const [data3, setData3] = useState([]);
 
     const [isActive, setIsActive] = useState(false);
+    const [isActive2, setIsActive2] = useState(false);
 
-    const handleClick = () => {
-      setIsActive(!isActive);
-      setCurrentCount((prevCount) => (parseInt(prevCount) + 1).toString());
+    const [currentCount, setCurrentCount] = useState(0);
+    const [countCart, setCountCart] = useState(0);
 
 
-    };
+// let counter1 = parseInt(localStorage.getItem("CurrentCount"));
+// let counter2 = parseInt(localStorage.getItem("CountCart"));
 
-    const handleClickCart = () => {
-        setIsActive(!isActive);
-        setCountCart((prevCount) => (parseInt(prevCount) + 1).toString());
+// const handleClick = () => {
+//     setIsActive(!isActive);
   
-  
-      };
+//     counter1++;
+//     localStorage.setItem('CurrentCount', counter1.toString());
+//   };
+
+
+//   const handleClickCart = () => {
+//     setIsActive2(!isActive2);
+//     counter2++;
+//     localStorage.setItem('CountCart', counter2.toString());
+//   };
+
+useEffect(() => {
+    const storedCurrentCount = localStorage.getItem("CurrentCount");
+    const storedCountCart = localStorage.getItem("CountCart");
+
+    // Ensure values are valid numbers, if not, initialize to 0
+    setCurrentCount(storedCurrentCount ? parseInt(storedCurrentCount, 10) : 0);
+    setCountCart(storedCountCart ? parseInt(storedCountCart, 10) : 0);
+}, []);
+
+// Sync state with local storage when counters change
+useEffect(() => {
+    localStorage.setItem("CurrentCount", currentCount.toString());
+}, [currentCount]);
+
+useEffect(() => {
+    localStorage.setItem("CountCart", countCart.toString());
+}, [countCart]);
+
+const handleClick = () => {
+    setIsActive(!isActive);
+    setCurrentCount(prevCount => prevCount + 1);
+    window.location.reload();
+};
+
+const handleClickCart = () => {
+    setIsActive2(!isActive2);
+    setCountCart(prevCount => prevCount + 1);
+    // window.location.reload();
+};
 
 
     useEffect(() => {
@@ -66,7 +104,7 @@ const Flash = ({ setCurrentCount, currentCount , setCountCart }) => {
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
-                <button class="add-to-cart"   onClick={handleClickCart}>Add to Cart</button>
+                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={handleClickCart}>Add to Cart</button>
                 <div className='icons'>
                   <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={handleClick}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>

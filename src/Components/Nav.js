@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   MDBNavbar,
   MDBContainer,
@@ -14,6 +14,7 @@ import {
 import './css-components/nav.css';
 import Flash from './Flash';
 import Home from './Home';
+import { Link } from 'react-router-dom';
 
 
 const Nav = () => {
@@ -29,10 +30,25 @@ const Nav = () => {
       }
     };
 
-    const [currentCount, setCurrentCount] = useState(0);
-    const [CountCart, setCountCart] = useState(0);
 
+    let CurrentCount=(localStorage.getItem("CurrentCount"));
+    let CountCart=(localStorage.getItem("CountCart"));
+  
+   function startLiveUpdate(){
+    setInterval(function(){
+      let CurrentCount=(localStorage.getItem("CurrentCount"));
+      let CountCart=(localStorage.getItem("CountCart"));
 
+    }, 1000);
+
+   }
+  
+
+   useEffect(()=>{
+    document.addEventListener('DOMContentLoaded' , function(){
+      startLiveUpdate();
+    });
+   })
 
     const handleLogout = () => {
   
@@ -48,10 +64,16 @@ const Nav = () => {
     }, [isLoggedIn]);
 
     const [isActive, setIsActive] = useState(false);
+   
 
     const handleClick = () => {
       setIsActive(!isActive);
     };
+    const [activeItem, setActiveItem] = useState('');
+    const handleItemClick = (itemName) => {
+      setActiveItem(itemName);
+    };
+
 
 return (
   <>
@@ -71,27 +93,31 @@ return (
         </MDBNavbarToggler>
         <MDBCollapse open={openNavColor} navbar>
           <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-            <MDBNavbarItem className='active'>
-              <MDBNavbarLink aria-current='page' href='./' className='item'>
+            <MDBNavbarItem >
+              <Link aria-current='page' to='/'  className={`item ${activeItem === 'home' ? 'active' : ''}`}
+                onClick={() => handleItemClick('home')} >
                 Home
-              </MDBNavbarLink>
+              </Link>
             </MDBNavbarItem>
-            <MDBNavbarItem className='active'>
-              <MDBNavbarLink href='./contact' className='item'>Contact</MDBNavbarLink>
+            <MDBNavbarItem >
+              <Link to='/contact' className={`item ${activeItem === 'contact' ? 'active' : ''}`}
+                onClick={() => handleItemClick('contact')} >Contact</Link>
             </MDBNavbarItem>
-            <MDBNavbarItem className='item'>
-              <MDBNavbarLink href='./about'>About</MDBNavbarLink>
+            <MDBNavbarItem >
+              <Link to='/about'  className={`item ${activeItem === 'about' ? 'active' : ''}`}
+                onClick={() => handleItemClick('about')}>About</Link>
             </MDBNavbarItem>
-            <MDBNavbarItem className='item'>
-              <MDBNavbarLink href='./signup'>Sign up</MDBNavbarLink>
+            <MDBNavbarItem>
+              <Link to='/signup'  className={`item ${activeItem === 'signup' ? 'active' : ''}`}
+                onClick={() => handleItemClick('signup')} >Sign up</Link>
             </MDBNavbarItem>
             <form className='d-flex input-group w-auto form-search'>
               <input type='search' className='form-control' placeholder='What are you looking for?' aria-label='Search' id='search-input' />
               <MDBIcon fas icon="search" className='icon-search'/>
             </form>
             <MDBNavbarItem className='icons'>
-                <MDBIcon far icon="heart" className='heart-icon'  current-count={currentCount} setCurrentCount={setCurrentCount} currentCount={currentCount} />
-                <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count={CountCart} setCountCart={setCountCart} CountCart={CountCart}  />
+                <MDBIcon far icon="heart" className="heart-icon"current-count={CurrentCount}   />
+                <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count={CountCart}  />
                 
                 {isLoggedIn ? (
                   <div className='user-icon'>
@@ -101,7 +127,7 @@ return (
         <div className={`menu-user ${isActive ? 'active' : ''}`}>
           <div className='line'>
             <MDBIcon far icon="user" className='icon-line' />
-            <span>Manage Account</span>
+            <Link to='/profile' className='link-list'><span >Manage Account</span></Link> 
           </div>
 
           <div className='line'>
@@ -132,10 +158,9 @@ return (
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>
-    <Home />
-    <Flash setCurrentCount={setCurrentCount} currentCount={currentCount} setCountCart={setCountCart} CountCart={CountCart} />
 
   </>
 );
+
 }
 export default Nav;

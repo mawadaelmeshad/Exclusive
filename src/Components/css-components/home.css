@@ -7,7 +7,7 @@
     /* place-items: center; */
     /* grid-template-columns: repeat(12, 1fr);  */
     margin-top: 2rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: 0;
 }
 .home img{
@@ -28,11 +28,11 @@
 .home ul::after{
     position: absolute;
     content: "";
-    height: 122%;
+    height: 116%;
     background-color: #cac8c8;
-    width: 1px;
+    width: .2px;
     margin-left: 15px;
-    top: 0%;
+    top: -10%;
     left: 120%;
 
 }

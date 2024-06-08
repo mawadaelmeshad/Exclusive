@@ -9,6 +9,7 @@ import About from './Components/About';
 import Contact from './Components/Contact';
 import Checkout from './Components/Checkout';
 import Cart from './Components/Cart';
+import Profile  from './Components/Pofile';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Route, Routes } from 'react-router';
@@ -34,6 +35,8 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/profile' element={<Profile/>} />
+        
 
 
 

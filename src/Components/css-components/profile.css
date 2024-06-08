@@ -1,0 +1,129 @@
+.profile{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    margin-top: 10rem;
+    /* margin-left: 2rem;
+    margin-right: 2rem; */
+    gap: 10rem;
+}
+
+.profile .form-profile{
+    /* display: flex;
+    flex-direction:row;
+    flex-wrap: wrap; */
+    gap: 2rem;
+    width: 55rem;
+    border-radius: 4px;
+    padding: 4rem;
+    padding-left: 7rem;
+    padding-right: 6rem;
+    box-shadow: 0 1px 1px 0 0 rgba(216, 211, 211, 0.762), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: fit-content;
+    /* min-width: fit-content; */
+}
+.profile .form-profile form{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px 0 0 rgba(216, 211, 211, 0.762), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: fit-content;
+}
+.profile .form-profile .label{
+    /* margin-top: -5%;
+    margin-right: -18%; */
+    display: block;
+    width: 100%;
+    color: black;
+}
+.profile .form-profile .title-form{
+    font-size: 1.5rem;
+    color: #DB4444;
+    /* margin-bottom: 4rem; */
+}
+
+.profile .form-profile input{
+    background-color: #F5F5F5;
+    border: none;
+    /* margin: 2rem; */
+    /* margin-left: .5rem; */
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    border-radius: 4px;
+    width: 20rem;
+    height: 3rem;
+}
+.profile .pass-group{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+.profile .pass-group input{
+    width: 100%;
+    display: block;
+}
+.profile .form-profile label{
+    
+}
+
+.profile .list .title-list{
+    font-size: 1rem;
+    color: black;
+}
+.profile .list p{
+    padding-left: 2rem;
+    color: grey;
+}
+.profile .contain-btns{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content:flex-end;
+}
+
+.profile .orange-btn{
+    background-color: #DB4444;
+    text-transform: capitalize;
+    width: 12rem;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: 400; 
+    margin-top: 3rem;
+    box-shadow: none;
+}
+.profile .orange-btn:hover{
+    opacity: .5;
+    background-color: #DB4444;
+
+}
+.profile .cancel{
+    text-transform: capitalize;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-right: 2rem; 
+    margin-top: 4rem;
+    float: right;
+    color: black;
+}
+
+@media(max-width :550px){
+    .profile .form-profile{
+       width: 30rem;
+       padding-left: 3rem;
+       padding-right: 3rem;
+    }
+    .profile .form-profile input{
+        width: 15rem;
+    }
+}
