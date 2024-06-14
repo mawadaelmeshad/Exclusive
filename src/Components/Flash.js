@@ -3,7 +3,7 @@ import flash1 from '../images/flash1.png';
 import React, { useEffect, useState } from 'react';
 import './css-components/flash.css'
 import Home2 from '../images/home2.png';
-const Flash = () => {
+const Flash = ({ handleAddToCart , handleAddToWishlist}) => {
     const [data, setData] = useState([]);
     const [data2, setData2] = useState([]);
     const [data3, setData3] = useState([]);
@@ -11,8 +11,8 @@ const Flash = () => {
     const [isActive, setIsActive] = useState(false);
     const [isActive2, setIsActive2] = useState(false);
 
-    const [currentCount, setCurrentCount] = useState(0);
-    const [countCart, setCountCart] = useState(0);
+    // const [currentCount, setCurrentCount] = useState(0);
+    // const [countCart, setCountCart] = useState(0);
 
 
 // let counter1 = parseInt(localStorage.getItem("CurrentCount"));
@@ -32,35 +32,29 @@ const Flash = () => {
 //     localStorage.setItem('CountCart', counter2.toString());
 //   };
 
-useEffect(() => {
-    const storedCurrentCount = localStorage.getItem("CurrentCount");
-    const storedCountCart = localStorage.getItem("CountCart");
 
-    // Ensure values are valid numbers, if not, initialize to 0
-    setCurrentCount(storedCurrentCount ? parseInt(storedCurrentCount, 10) : 0);
-    setCountCart(storedCountCart ? parseInt(storedCountCart, 10) : 0);
-}, []);
 
-// Sync state with local storage when counters change
-useEffect(() => {
-    localStorage.setItem("CurrentCount", currentCount.toString());
-}, [currentCount]);
 
-useEffect(() => {
-    localStorage.setItem("CountCart", countCart.toString());
-}, [countCart]);
+// useEffect(() => {
+//     localStorage.setItem("CountCart", countCart.toString());
+// }, [countCart]);
+// let counterFav=0;
+// const handleClick = () => {
+//     // setIsActive(!isActive);
+//     // setCurrentCount(prevCount => prevCount + 1);
+//     // window.location.reload();
+//     counterFav++;
+    
+// };
 
-const handleClick = () => {
-    setIsActive(!isActive);
-    setCurrentCount(prevCount => prevCount + 1);
-    window.location.reload();
-};
+// let counterCart=0;
 
-const handleClickCart = () => {
-    setIsActive2(!isActive2);
-    setCountCart(prevCount => prevCount + 1);
-    // window.location.reload();
-};
+// const handleClickCart = () => {
+//     // setIsActive2(!isActive2);
+//     // setCountCart(prevCount => prevCount + 1);
+//     // window.location.reload();
+//     counterCart++;
+// };
 
 
     useEffect(() => {
@@ -104,9 +98,9 @@ const handleClickCart = () => {
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
-                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={handleClickCart}>Add to Cart</button>
+                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={handleAddToCart}>Add to Cart</button>
                 <div className='icons'>
-                  <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={handleClick}/></span>
+                  <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={()=>handleAddToWishlist(item.id)}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
                 </div>
                 <span className='percentage'>-40%</span>
@@ -183,10 +177,9 @@ const handleClickCart = () => {
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
-                <button class="add-to-cart">Add to Cart</button>
-
+                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={handleAddToCart}>Add to Cart</button>
                 <div className='icons'>
-                <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={handleClick}/></span>
+                  <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={()=>handleAddToWishlist(item.id)}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
                 </div>
               
@@ -221,10 +214,9 @@ const handleClickCart = () => {
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
-                <button class="add-to-cart">Add to Cart</button>
-
+                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={handleAddToCart}>Add to Cart</button>
                 <div className='icons'>
-                <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={handleClick}/></span>
+                  <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={()=>handleAddToWishlist(item.id)}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
                 </div>
               

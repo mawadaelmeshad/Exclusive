@@ -4,7 +4,12 @@ import './css-components/about.css';
 
 function About(){
     return(
-        <div className="about">
+        <div className='about-main'>
+                <div className="top">
+                <span className="p1"><span className="home-word">Home / </span> About</span>
+                
+            </div>
+            <div className="about">
             <div className="contain-about">
                 <div className="contain-words">
                     <h2 className="title">Our story</h2>
@@ -81,6 +86,8 @@ function About(){
             </div>
 
         </div>
+        </div>
+    
 
     )
 }

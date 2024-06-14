@@ -4,7 +4,12 @@ import './css-components/contact.css';
 
 function Contact(){
     return(
-        <div className="contact">
+        <div className="contact-container">
+            <div className="top">
+                <span className="p1"><span className="home-word">Home / </span> Contact</span>
+                
+            </div>
+            <div className="contact">
             <div className="call">
                 <MDBCard className="contact-card">
                     <div className="title-holder">
@@ -39,6 +44,8 @@ function Contact(){
             {/* </div> */}
 
         </div>
+        </div>
+     
 
     )
 

@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 
 function Profile(){
     return(
-        <div className="profile">
+        <div className="profile-container">
+            <div className="top">
+                <span className="p1"><span className="home-word">Home / </span> My Account</span>
+                <span className="p2">Welcome! <span className="username">{`${localStorage.getItem("username")}`}</span></span>
+                
+            </div>
+            <div className="profile">
             <div className="side-list">
                 <div className="list">
                     <h3 className="title-list">Manage My Account</h3>
@@ -85,6 +91,9 @@ function Profile(){
             {/* </div> */}
 
         </div>
+        </div>
+
+       
 
     )
 

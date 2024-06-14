@@ -9,18 +9,20 @@
     margin-top: 2rem;
     /* overflow: hidden; */
     z-index: 0;
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 .home img{
     /* grid-column: span 9; */
     /* margin-left: -12rem; */
-    width: 60%;
+    width: 70%;
 }
 .home ul{
     /* grid-column: span 3; */
     list-style: none;
     color: black;
     position: relative;
-    margin-left: 3rem;
+    /* margin-left: 3rem; */
 }
 .home ul li{
     margin-top: .5rem;
@@ -32,7 +34,7 @@
     background-color: #cac8c8;
     width: .2px;
     margin-left: 15px;
-    top: -10%;
+    top: -9%;
     left: 120%;
 
 }

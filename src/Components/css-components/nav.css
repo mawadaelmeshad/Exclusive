@@ -6,11 +6,13 @@
     border-bottom: 1px solid #cac8c8;
     color: black;
     overflow: visible;
+    padding-left: 6rem;
+    padding-right: 6rem;
 }
 #logo{
     font-weight: bold;
-    margin-left: 4rem;
-    margin-right: 8rem;
+    margin-right: 10rem;
+    margin-top: -4px;
 }
 #home{
     text-decoration: underline;
@@ -20,7 +22,7 @@
 .item{
     color: black !important;
     margin-top: 1.5rem;
-    margin-right: 2rem;
+    /* margin-right: 2.5rem; */
     position: relative;
 }
 .item.active::after{
@@ -34,7 +36,7 @@
 }
 #search-input{
     position: relative;
-    margin-left: 8rem;
+    margin-left: 7rem;
     background-color: #F5F5F5;
     border: none;
     color: #7D8184;
@@ -59,9 +61,12 @@
     margin-top: 9px;
     font-size: 1.2rem;
     margin-left: 4rem;
+    margin-right: 4rem;
 }
 .heart-icon{
     position: relative;
+    margin:0;
+    color: black;
 }
 .heart-icon::after{
     content: attr(current-count);
@@ -82,7 +87,9 @@
 .heart-icon[current-count='0']::after {
     display: none; /* Hide when count is 0 */
 }
-
+.icon-link{
+    margin-top: -4px;
+}
 /* .user-icon {
     position: relative;
     margin-top: -4px;
@@ -154,7 +161,21 @@
     .icons{
         margin-left: .2rem;
     }
+    #my-nav{
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    .menu-user {
+        left: 6rem;
+    }
 
+
+}
+@media(max-width:460px){
+     #my-nav{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 
 }
 @media(max-width:375px){

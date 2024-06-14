@@ -15,14 +15,14 @@
     width: 50rem;
 }
 .about .contain-words p{
-    margin-left: 4rem;
-    margin-right: 4rem;
+    margin-left: 6rem;
+    margin-right: 7rem;
     text-align: left;
     margin-top: 3rem;
     color: black;
 }
 .about .contain-words .title{
-    margin-left: 4rem;
+    margin-left: 6rem;
 }
 .about .contain-img img{
     margin-top: -3rem;
@@ -55,6 +55,6 @@
     .about .contain-img img{
         margin-top: -3rem;
         width: 20rem;
-        margin-left: 4rem;
+        margin-left: 6rem;
     }
 }

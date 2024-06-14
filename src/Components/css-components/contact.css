@@ -1,21 +1,42 @@
+
+.top{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+    display: block;
+    padding-left: 6rem;
+    margin-right: 6rem;
+}
+.top .p1{
+    justify-content: flex-start;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    color: black;
+}
+.home-word{
+color: grey;
+}
 .contact{
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    /* flex-wrap: wrap; */
-    margin-top: 10rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    gap: 4rem;
+    margin-top: 6rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    gap: 2rem;
 }
 .contact .form-contact{
     display: flex;
     flex-direction: column;
     /* flex-wrap: wrap; */
     gap: 2rem;
-    width: 55rem;
+    width: 53rem;
+    min-width: fit-content;
     border-radius: 4px;
     padding: 2rem;
     box-shadow: 0 1px 1px 0 0 rgba(216, 211, 211, 0.762), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -61,10 +82,11 @@
 
 }
 .contact .contact-card{
-    width: 25rem;
-    height: 33rem;
+    width: 23rem;
+    height: 36rem;
     /* height:fit-content; */
     padding: 3rem;
+    margin-left: -2rem;
 }
 .contact .title-holder{
     margin-bottom: 1rem;

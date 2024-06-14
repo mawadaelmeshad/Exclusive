@@ -2,21 +2,25 @@
     font-family: "Poppins", sans-serif;
     text-align: center;
     margin-top: 5rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     justify-content: center;
+    margin-left: 6rem;
+    margin-right: 6rem;
 
 }
 .flash{
     text-align: left;
 }
 .title{
-    margin-left: 6rem;
+    /* margin-left: 6rem; */
     color: black;
+    margin-left: 1rem;
+    padding-top: 1rem;
     font-weight: 600;
     text-transform: capitalize;
 }
 .custom-hr{
-    width: 80%;
+    width: 98%;
     margin: auto;
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -26,15 +30,17 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 8rem;
-    margin-right: 8rem;
+    /* margin-left: 8rem;
+    margin-right: 8rem; */
     gap: 2rem;
     margin-top: 4rem;
+    margin-bottom: 4rem;
+    clear: right;
 }
 .flash .small-title{
     color: #DB4444;
     font-weight: bold;
-    margin-left: 7rem;
+    margin-left: 2rem;
     padding-left: 1rem;
     text-transform: capitalize;
     position: relative;
@@ -154,6 +160,7 @@
 .flash-main .img{
     margin-top: 4rem;
     margin-bottom: 4rem;
+    margin-left: -5rem;
 }
 .cards .card2 :hover{
     cursor: pointer;
@@ -222,17 +229,22 @@
     position: relative;
 }
 .flash .view-btn{
-    position: absolute;
+    /* position: absolute;
     left: 64%;
-    top: -84%;
+    top: -84%; */
     width: 10rem;
-    margin-left: 8rem;
-    margin-right: 8rem;
+    float:right;
+    margin-right: 6rem;
+    margin-bottom: 4rem;
 }
 @media(max-width:989px){
     .flash .icons{
         left:80%;
     }
+    .flash-main .img{
+       display: none;
+    }
+   
 }
 @media(max-width:375px){
     .title{

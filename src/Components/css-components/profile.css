@@ -10,7 +10,38 @@
     margin-right: 2rem; */
     gap: 10rem;
 }
-
+.profile-container .top{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+    display: block;
+    padding-left: 6rem;
+    margin-right: 6rem;
+}
+.profile-container .top .p1{
+    justify-content: flex-start;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    color: black;
+}
+.profile-container .top .p2{
+    justify-content: flex-end;
+    float: right;
+    /* padding-left: 6rem; */
+    margin-right: 4rem;
+     /* margin-left: 1rem; */
+    color: black;
+}
+.home-word{
+color: grey;
+}
+.username{
+color: #DB4444;
+text-transform: capitalize;
+}
 .profile .form-profile{
     /* display: flex;
     flex-direction:row;

@@ -17,7 +17,7 @@ import Home from './Home';
 import { Link } from 'react-router-dom';
 
 
-const Nav = () => {
+const Nav = ({ cartCount, wishlistCount }) => {
     const [openNavColor, setOpenNavColor] = useState(false);
 
     const [isLoggedIn, setIsLoggedIn] = useState(false); 
@@ -31,28 +31,13 @@ const Nav = () => {
     };
 
 
-    let CurrentCount=(localStorage.getItem("CurrentCount"));
-    let CountCart=(localStorage.getItem("CountCart"));
   
-   function startLiveUpdate(){
-    setInterval(function(){
-      let CurrentCount=(localStorage.getItem("CurrentCount"));
-      let CountCart=(localStorage.getItem("CountCart"));
-
-    }, 1000);
-
-   }
   
-
-   useEffect(()=>{
-    document.addEventListener('DOMContentLoaded' , function(){
-      startLiveUpdate();
-    });
-   })
-
     const handleLogout = () => {
   
         localStorage.removeItem('token');
+        // localStorage.setItem("cartCount", '0');
+        // localStorage.setItemItem("wishlistCount", "0");
         setIsLoggedIn(false);
         window.location.href = '/login';
       };
@@ -93,31 +78,44 @@ return (
         </MDBNavbarToggler>
         <MDBCollapse open={openNavColor} navbar>
           <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-            <MDBNavbarItem >
+            <MDBNavbarItem  className='mx-4'>
               <Link aria-current='page' to='/'  className={`item ${activeItem === 'home' ? 'active' : ''}`}
                 onClick={() => handleItemClick('home')} >
                 Home
               </Link>
             </MDBNavbarItem>
-            <MDBNavbarItem >
+            <MDBNavbarItem className='mx-4'>
               <Link to='/contact' className={`item ${activeItem === 'contact' ? 'active' : ''}`}
                 onClick={() => handleItemClick('contact')} >Contact</Link>
             </MDBNavbarItem>
-            <MDBNavbarItem >
+            <MDBNavbarItem className='mx-4' >
               <Link to='/about'  className={`item ${activeItem === 'about' ? 'active' : ''}`}
                 onClick={() => handleItemClick('about')}>About</Link>
             </MDBNavbarItem>
-            <MDBNavbarItem>
+
+            <MDBNavbarItem className='mx-4'>
               <Link to='/signup'  className={`item ${activeItem === 'signup' ? 'active' : ''}`}
                 onClick={() => handleItemClick('signup')} >Sign up</Link>
-            </MDBNavbarItem>
+            </MDBNavbarItem >
+            {/* {isLoggedIn ? (
+        <>
+      
+        </>
+      ) : (
+        <>
+        
+       
+        </>
+      )} */}
+            
             <form className='d-flex input-group w-auto form-search'>
               <input type='search' className='form-control' placeholder='What are you looking for?' aria-label='Search' id='search-input' />
               <MDBIcon fas icon="search" className='icon-search'/>
             </form>
             <MDBNavbarItem className='icons'>
-                <MDBIcon far icon="heart" className="heart-icon"current-count={CurrentCount}   />
-                <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count={CountCart}  />
+                 <Link to='/wishlist' className='icon-link'><MDBIcon far icon="heart" className="heart-icon" current-count={cartCount}  /></Link>
+                <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count={wishlistCount} />
+                
                 
                 {isLoggedIn ? (
                   <div className='user-icon'>

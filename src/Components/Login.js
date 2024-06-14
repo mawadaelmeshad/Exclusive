@@ -27,6 +27,7 @@ function Login(){
                 console.log(data);
                 window.location.href = '/';
                 localStorage.setItem('token', "122")
+                localStorage.setItem('username',name);
                 // localStorage.setItem('token', data.token)
             } else {
                 swal("Sorry, email or password is incorrect!");
