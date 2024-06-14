@@ -246,7 +246,15 @@
     }
    
 }
-@media(max-width:375px){
+@media(max-width:640px){
+    .flash-main{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    
+    }
+   
+}
+/* @media(max-width:375px){
     .title{
         margin-left: 4rem;
     }
@@ -256,4 +264,4 @@
     .flash .small-title::before{
         margin-left: 15px;
     }
-}
+} */

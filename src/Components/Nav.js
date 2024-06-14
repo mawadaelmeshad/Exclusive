@@ -113,8 +113,8 @@ return (
               <MDBIcon fas icon="search" className='icon-search'/>
             </form>
             <MDBNavbarItem className='icons'>
-                 <Link to='/wishlist' className='icon-link'><MDBIcon far icon="heart" className="heart-icon" current-count={cartCount}  /></Link>
-                <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count={wishlistCount} />
+                 <Link to='/wishlist' className='icon-link'><MDBIcon far icon="heart" className="heart-icon" current-count={wishlistCount}  /></Link>
+                 <Link to='/cart' className='icon-link'> <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count={cartCount} /></Link>
                 
                 
                 {isLoggedIn ? (

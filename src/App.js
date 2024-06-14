@@ -20,16 +20,40 @@ function App() {
   const [cartCount, setCartCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
 
-  const handleAddToCart = () => {
-    setWishlistCount(wishlistCount + 1);
+  const handleAddToCart = (idCart) => {
+    let storedIdss = JSON.parse(localStorage.getItem("idCart"));
+        
+    // If storedIds is not an array, initialize it as an empty array
+    if (!Array.isArray(storedIdss)) {
+        storedIdss = [];
+    }
+
+    // Add the new product ID to the array if it's not already there
+    if (!storedIdss.includes(idCart)) {
+        storedIdss.push(idCart);
+        localStorage.setItem("idCart", JSON.stringify(storedIdss));
+    }
+    setCartCount(cartCount + 1);
     // localStorage.setItem("wishlistCount", wishlistCount);
    
 
   };
 
-  const handleAddToWishlist = (productId) => {
-    localStorage.setItem("id",productId);
-    setCartCount(cartCount + 1);
+  const handleAddToWishlist = (id) => {
+    let storedIds = JSON.parse(localStorage.getItem("id"));
+        
+    // If storedIds is not an array, initialize it as an empty array
+    if (!Array.isArray(storedIds)) {
+        storedIds = [];
+    }
+
+    // Add the new product ID to the array if it's not already there
+    if (!storedIds.includes(id)) {
+        storedIds.push(id);
+        localStorage.setItem("id", JSON.stringify(storedIds));
+    }
+    // localStorage.setItem("id",productId);
+    setWishlistCount(wishlistCount + 1);
     // localStorage.setItem("cartCount", cartCount);
   
 
@@ -44,9 +68,9 @@ function App() {
             <>
               <Home />
               <Flash handleAddToCart={handleAddToCart} handleAddToWishlist={handleAddToWishlist}/>
-              <Wishlist handleAddToCart={handleAddToCart} />
             </>
           }>
+        
 
           </Route>
         <Route path='/login' element={<Login />} />
@@ -56,7 +80,7 @@ function App() {
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/profile' element={<Profile/>} />
-        <Route path='/wishlist' element={<Wishlist/>} />
+        <Route path='/wishlist' element={<Wishlist handleAddToCart={handleAddToCart} />} />
 
         
 

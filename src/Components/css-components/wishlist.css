@@ -4,8 +4,8 @@
     margin-top: 5rem;
     /* overflow: hidden; */
     justify-content: center;
-    margin-left: 6rem;
-    margin-right: 6rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
     margin-top: 4rem;
 
 }
@@ -14,10 +14,11 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-left: -4rem;
+    width: 100%;
 }
 .wishlist .top p{
   justify-content: flex-start;
-   /* margin-left: 1rem; */
    color: black;
 }
 .wishlist .view-btn{
@@ -35,7 +36,8 @@
     border: 1px solid grey;
     border-radius: 4px;
     padding: .4rem 2.5rem;
-    width: 13rem;
+    width: 100%;
+    max-width: 13rem;
 }
 .wishlist .transparent-btn:hover{
     background-color: #DB4444;

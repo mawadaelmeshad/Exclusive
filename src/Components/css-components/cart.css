@@ -2,12 +2,10 @@
     font-family: "Poppins", sans-serif;
     margin-top: 6rem;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* overflow: hidden; */
-    margin-left: 4rem;
-    margin-right: 4rem;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 2rem;
 
 }
 .cart .table-container .table{
@@ -15,10 +13,8 @@
     color: black;
     font-weight: 300;
     padding-bottom: 2rem;
-    width: 90%;
-    margin-left: 1rem;
-    margin-right: 1rem;
-
+    width: 100%;
+    max-width: 100%;
 }
 .cart .table-container .table .tr
 {
@@ -29,10 +25,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 1rem;
     flex-wrap: wrap;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    width: 100%;
+    max-width: 100%;
 }
 .cart .btn-container .transparent-btn{
     background-color: white;
@@ -69,8 +65,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    width: 100%;
+    max-width: 100%;
 
 }
 .cart .contain-btns input{
@@ -90,16 +86,22 @@
     margin-top: 2rem;
     border-radius: 4px;
     padding: 2rem;
-    width: 35%;
-    min-width: fit-content;
+    width: 100%;
+    max-width: 30rem;
     color: black;
     
 }
 .cart .info span{
     text-transform: capitalize;
 }
+.cart .info hr{
+    width: 20rem;
+}
 .cart .spanOne{
     margin-right: 18rem;
+}
+.cart .total{
+    margin-right: 19.5rem;
 }
 
 .cart .contain-bottom{
@@ -109,8 +111,31 @@
     justify-content: space-between;
     flex-wrap: wrap-reverse;
     margin-top: 2rem;
+    width: 100%;
+}
+.product-img{
+    width: 5rem;
+    padding-right: 2rem;
 }
 .cart .cart-total{
     color: black;
     padding-bottom: 1rem;
+}
+
+@media (max-width: 674px){
+    .cart {
+        padding: 0 1rem;
+    }
+
+    .cart .table-container .table {
+        display: none;
+    }
+
+    .cart .spanOne {
+        margin-right: auto;
+    }
+
+    .cart hr {
+        display: none;
+    }
 }

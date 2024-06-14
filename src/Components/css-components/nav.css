@@ -163,7 +163,7 @@
     }
     #my-nav{
         padding-left: 3rem;
-        padding-right: 3rem;
+        padding-right: 1rem;
     }
     .menu-user {
         left: 6rem;
@@ -171,15 +171,15 @@
 
 
 }
-@media(max-width:460px){
+@media(max-width:640px){
      #my-nav{
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
 }
 @media(max-width:375px){
-    #logo{
+    /* #logo{
         margin-left: 2rem;
-    }
+    } */
 }

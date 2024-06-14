@@ -98,7 +98,7 @@ const Flash = ({ handleAddToCart , handleAddToWishlist}) => {
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
-                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={handleAddToCart}>Add to Cart</button>
+                <button className= {`add-to-cart ${isActive ? 'active' : ''}`} onClick={()=>handleAddToCart(item.id)}>Add to Cart</button>
                 <div className='icons'>
                   <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={()=>handleAddToWishlist(item.id)}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
@@ -177,7 +177,7 @@ const Flash = ({ handleAddToCart , handleAddToWishlist}) => {
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
-                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={handleAddToCart}>Add to Cart</button>
+                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={()=>handleAddToCart(item.id)}>Add to Cart</button>
                 <div className='icons'>
                   <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={()=>handleAddToWishlist(item.id)}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
@@ -214,7 +214,7 @@ const Flash = ({ handleAddToCart , handleAddToWishlist}) => {
             <div key={index} className='card-container'>
               <MDBCard className='custom-card'>
                 <MDBCardImage src={item.image} alt={item.title} className='card-img' />
-                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={handleAddToCart}>Add to Cart</button>
+                <button className= {`add-to-cart ${isActive ? 'active' : ''}`}  onClick={()=>handleAddToCart(item.id)}>Add to Cart</button>
                 <div className='icons'>
                   <span><MDBIcon far icon="heart" className={`icon-fav ${isActive ? 'active' : ''}`}  onClick={()=>handleAddToWishlist(item.id)}/></span>
                   <span><MDBIcon far icon="eye" className='icon' /></span>
