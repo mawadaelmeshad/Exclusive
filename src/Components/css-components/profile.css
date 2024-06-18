@@ -5,7 +5,7 @@
     justify-content: center;
     flex-wrap: wrap;
     /* flex-wrap: wrap; */
-    margin-top: 10rem;
+    margin-top: 6rem;
     /* margin-left: 2rem;
     margin-right: 2rem; */
     gap: 10rem;
@@ -15,24 +15,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 4rem;
     flex-wrap: wrap;
-    display: block;
-    padding-left: 6rem;
-    margin-right: 6rem;
-}
-.profile-container .top .p1{
-    justify-content: flex-start;
-    margin-left: 1rem;
-    margin-right: 2rem;
-    color: black;
+    width: 88vw;
 }
 .profile-container .top .p2{
-    justify-content: flex-end;
-    float: right;
-    /* padding-left: 6rem; */
-    margin-right: 4rem;
-     /* margin-left: 1rem; */
+    padding-left: 1rem;
+}
+.profile-container .top .p1,
+.profile-container .top .p2{
     color: black;
 }
 .home-word{
@@ -147,8 +137,18 @@ text-transform: capitalize;
     float: right;
     color: black;
 }
+@media(max-width:990px){
+    .profile-container  .top{
+        padding-left: 3rem;
+        margin-right: 3rem;
+    }
 
-@media(max-width :550px){
+}
+@media(max-width :640px){
+    .profile-container  .top{
+        padding-left: 1rem;
+        margin-right: 1rem;
+    }
     .profile .form-profile{
        width: 30rem;
        padding-left: 3rem;

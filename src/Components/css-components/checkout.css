@@ -1,7 +1,7 @@
 .checkout-contain{
     font-family: "Poppins", sans-serif;
-    margin-left: 4rem;
-    margin-right: 4rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
     margin-top: 8rem;
 
 }
@@ -25,6 +25,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     gap: 2rem;
+    min-width: fit-content;
     /* gap: 2rem; */
 }
 .checkout form input{
@@ -55,12 +56,16 @@
 .checkout .info{
     display: flex;
     flex-direction: column;
+    color: black;
 }
 .checkout .info span{
     text-transform: capitalize;
 }
+.checkout hr{
+    width: 25rem;
+}
 .checkout .spanOne{
-    margin-right: 18rem;
+    margin-right: 17rem;
 }
 
 .checkout .orange-btn{
@@ -75,6 +80,9 @@
     color: white;
     border-radius: 2px;
 
+}
+.checkout .total{
+    margin-right: 18.8rem;
 }
 .checkout .orange-btn:hover{
     opacity: .5;
@@ -105,4 +113,30 @@
 }
 .checkout .payment{
     width: 10rem;
+}
+@media(max-width:990px){
+    .checkout-contain{
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    .checkout form input{
+        width: 18rem;
+    }
+    .checkout .spanOne{
+        margin-right: 10rem;
+    }
+    .checkout hr{
+        width: 18rem;
+    }
+    .checkout .total{
+        margin-right: 11.5rem;
+    }
+
+}
+@media(max-width:640px){
+    .checkout-contain{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
 }

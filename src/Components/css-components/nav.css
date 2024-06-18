@@ -147,6 +147,14 @@
 .line .icon-line{
     padding-top: .3rem;
 }
+@media(max-width:1199px){
+    .item{
+        color: black !important;
+        margin-top: 3rem !important;
+        /* margin-right: 2.5rem; */
+        position: relative;
+    }
+}
 @media(max-width:990px){
     #search-input{
         display: none;
@@ -163,7 +171,7 @@
     }
     #my-nav{
         padding-left: 3rem;
-        padding-right: 1rem;
+        padding-right: 3rem;
     }
     .menu-user {
         left: 6rem;
@@ -176,10 +184,8 @@
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    .toggeler-icon{
+        margin-right: -1rem;
+    }
 
-}
-@media(max-width:375px){
-    /* #logo{
-        margin-left: 2rem;
-    } */
 }

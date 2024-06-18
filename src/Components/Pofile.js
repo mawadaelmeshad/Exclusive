@@ -23,7 +23,7 @@ function Profile(){
                     <p>My Returns</p>
                     <p>My Cancellations</p>
 
-                    <h3 className="title-list">My WishList</h3>
+                    <Link to='/wishlist'><h3 className="title-list">My WishList</h3></Link>
         
                 </div>
 

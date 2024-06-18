@@ -86,7 +86,7 @@
     margin-top: 2rem;
     border-radius: 4px;
     padding: 2rem;
-    width: 100%;
+    /* width: 100%; */
     max-width: 30rem;
     color: black;
     
@@ -124,18 +124,45 @@
 
 @media (max-width: 674px){
     .cart {
-        padding: 0 1rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        justify-content: center;
+    }
+    .cart .btn-container {
+        flex-direction: column;
+    }
+
+    .cart form input {
+        width: 100%;
+    }
+
+    .cart .info {
+        padding: 1rem;
+        width: 25rem;
     }
 
     .cart .table-container .table {
         display: none;
     }
 
-    .cart .spanOne {
-        margin-right: auto;
+    .cart .spanOne{
+        margin-right: 11rem;
     }
-
-    .cart hr {
-        display: none;
+    .cart .total{
+        margin-right: 12.5rem;
+    }
+}
+@media(max-width:440px){
+    .cart .info {
+        width: 20rem;
+    }
+    .cart .spanOne{
+        margin-right: 9rem;
+    }
+    .cart .total{
+        margin-right: 10.5rem;
+    }
+    .cart .info hr{
+        width: 17rem;
     }
 }

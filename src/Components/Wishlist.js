@@ -50,8 +50,33 @@ function Wishlist({ handleAddToCart }) {
     }, [products]);
 
     if (products.length === 0) {
-        return <p>No items in wishlist</p>; // Display a message if the wishlist is empty
+        return <p className="noItems">No items in wishlist !</p>; 
     }
+    
+    const deleteFunction = async (id, index) => {
+        try {
+            const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
+                method: "DELETE"
+            });
+            const result = await response.json();
+            console.log("Deleted product:", result);
+
+            const updatedProductIds = [
+                ...productIds.slice(0, index),
+                ...productIds.slice(index + 1)
+            ];
+            setProductIds(updatedProductIds);
+            localStorage.setItem("id", JSON.stringify(updatedProductIds));
+
+            const updatedProducts = [
+                ...products.slice(0, index),
+                ...products.slice(index + 1)
+            ];
+            setProducts(updatedProducts);
+        } catch (error) {
+            console.error("Failed to delete product:", error);
+        }
+    };
 
     return (
         <div className="wishlist">
@@ -64,11 +89,11 @@ function Wishlist({ handleAddToCart }) {
                     <div key={index} className='card-container'>
                         <MDBCard className='custom-card'>
                             <MDBCardImage src={product.image} alt={product.title} className='card-img' />
-                            <button className="add-to-cart" onClick={() => handleAddToCart(product.id)}>
+                            <button className="add-to-cart" onClick={() => {handleAddToCart(product.id);deleteFunction(product.id, index)}}>
                                 <MDBIcon fas icon="shopping-cart" className="cart-icon" /> Add to Cart
                             </button>
                             <div className='icons'>
-                                <span><MDBIcon fas icon="trash-alt" className='icon' /></span>
+                                <span><MDBIcon fas icon="trash-alt" className='icon' onClick={()=>deleteFunction(product.id, index)}/></span>
                             </div>
                         </MDBCard>
                         <h3 className='flash-title'>{product.title.substring(0, 10)}</h3>

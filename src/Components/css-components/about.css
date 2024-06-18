@@ -58,3 +58,30 @@
         margin-left: 6rem;
     }
 }
+@media(max-width:990px){
+    .about .contain-words p{
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    .about .contain-words .title{
+        margin-left: 3rem;
+        margin-right: 3rem;
+
+    }
+
+}
+@media(max-width:640px){
+    .about .contain-words p{
+        margin-left:1rem;
+        margin-right: 1rem;
+    }
+    .about .contain-words .title{
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+    }
+    .about .contain-img img{
+       margin-left: auto;
+       margin-right: auto;
+    }
+}

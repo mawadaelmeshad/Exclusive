@@ -1,6 +1,7 @@
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdb-react-ui-kit";
 import './css-components/cart.css';
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 function Cart({ handleAddToCart }){
 
         const [products, setProducts] = useState([]);
@@ -55,86 +56,100 @@ function Cart({ handleAddToCart }){
         products.forEach((product) => {
             total += product.price;
         });
+        localStorage.setItem("total", total);
 
         if (products.length === 0) {
-            return <p>No items in cart</p>; // Display a message if the wishlist is empty
+            return <p className="noItems">No items in cart !</p>; // Display a message if the wishlist is empty
+        }
+
+        function deleteItems(){
+            setProductIds([]);
+            setProducts([]);
+            localStorage.removeItem("idCart");
         }
     return(
-        <div className="cart">
+        <div className="cart-container">
+               <div className="top">
+                <span className="p1"><span className="home-word">Home / </span> Cart</span>
+                
+            </div>
+            <div className="cart">
             
-                        <div className="table-container">
-                        <MDBTable hover borderless cellPadding={5} className="table">
-    <MDBTableHead>
-        <tr className="tr">
-            <th scope='col'>Product</th>
-            <th scope='col'>Price</th>
-            <th scope='col'>Quantity</th>
-            <th scope='col'>Subtotal</th>
-        </tr>
-    </MDBTableHead>
-    <MDBTableBody>
-        {products.map((product, index) => (
-            <tr key={index} className="tr">
-                <td><img src={product.image} alt="image" className="product-img"/>{product.title.substring(0, 10)}</td>
-                <td>${product.price}</td>
-                <td>1</td>
-                <td>${product.price}</td>
-            </tr>
-        ))}
-    </MDBTableBody>
+            <div className="table-container">
+            <MDBTable hover borderless cellPadding={5} className="table">
+<MDBTableHead>
+<tr className="tr">
+<th scope='col'>Product</th>
+<th scope='col'>Price</th>
+<th scope='col'>Quantity</th>
+<th scope='col'>Subtotal</th>
+</tr>
+</MDBTableHead>
+<MDBTableBody>
+{products.map((product, index) => (
+<tr key={index} className="tr">
+    <td><img src={product.image} alt="image" className="product-img"/>{product.title.substring(0, 10)}</td>
+    <td>${product.price}</td>
+    <td>1</td>
+    <td>${product.price}</td>
+</tr>
+))}
+</MDBTableBody>
 </MDBTable>
 
-                        <div className="btn-container">
-                        <button className='transparent-btn'>Return To Shop</button>
-                        <button className='transparent-btn'>Update Cart</button>
-        
-                        </div>
-        
-                      <div className="contain-bottom">
-                      <div className="contain-btns">
-                         <form>
-                            <input type="text" placeholder="Coupon Code"/>
-                            <button className='orange-btn'>Apply Coupon</button>
-                         </form>
-                        
-        
-                        </div>
-                        <div className="info">
-                            <h5 className="cart-total">Cart Total</h5>
-                        <div className="subtotal">
-                            <span className="spanOne">subtotal</span>
-                            <span>${total}</span>
-                        </div>
-                        <hr/>
-        
-                        <div className="shipping">
-                            <span className="spanOne">shipping</span>
-                            <span>free</span>
-                        </div>
-                        <hr/>
-        
-                        <div className="total">
-                            <span className="spanOne total">total</span>
-                            <span>${total}</span>
-                        </div>
-                      
-                        <div className="contain-btns">
-                         <form>
-                        
-                            <button className='orange-btn'>Procees to checkout</button>
-                         </form>
-                        
-        
-                        </div>
-        
-           
-        
-                    </div>
-                      </div>
-                    </div>
+            <div className="btn-container">
+          <Link to='/'>  <button className='transparent-btn'>Return To Shop</button></Link>
+            <button className='transparent-btn' onClick={deleteItems}>Update Cart</button>
+
+            </div>
+
+          <div className="contain-bottom">
+          <div className="contain-btns">
+             <form>
+                <input type="text" placeholder="Coupon Code"/>
+                <button className='orange-btn'>Apply Coupon</button>
+             </form>
             
-      
+
+            </div>
+            <div className="info">
+                <h5 className="cart-total">Cart Total</h5>
+            <div className="subtotal">
+                <span className="spanOne">subtotal</span>
+                <span>${total}</span>
+            </div>
+            <hr/>
+
+            <div className="shipping">
+                <span className="spanOne">shipping</span>
+                <span>free</span>
+            </div>
+            <hr/>
+
+            <div className="total">
+                <span className="spanOne total">total</span>
+                <span>${total}</span>
+            </div>
+          
+            <div className="contain-btns">
+             <form>
+            
+                <Link to='/checkout'><button className='orange-btn'>Procees to checkout</button></Link>
+             </form>
+            
+
+            </div>
+
+
+
         </div>
+          </div>
+        </div>
+
+
+</div>
+        </div>
+  
 
     )
 }

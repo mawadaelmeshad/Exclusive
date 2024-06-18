@@ -2,7 +2,7 @@
     font-family: "Poppins", sans-serif;
     text-align: center;
     margin-top: 5rem;
-    /* overflow: hidden; */
+    overflow: hidden;
     justify-content: center;
     margin-left: 6rem;
     margin-right: 6rem;
@@ -237,7 +237,13 @@
     margin-right: 6rem;
     margin-bottom: 4rem;
 }
-@media(max-width:989px){
+@media(min-width:991px){
+    .flash-main .img{
+       margin-left: auto;
+       margin-right: auto;
+     }
+}
+@media(max-width:990px){
     .flash .icons{
         left:80%;
     }

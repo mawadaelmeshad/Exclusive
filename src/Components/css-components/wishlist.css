@@ -9,6 +9,13 @@
     margin-top: 4rem;
 
 }
+.noItems{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    color: black;
+}
 .wishlist .top{
     display: flex;
     flex-direction: row;

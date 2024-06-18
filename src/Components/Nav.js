@@ -64,7 +64,7 @@ return (
   <>
     <MDBNavbar expand='xl' id='my-nav'>
       <MDBContainer fluid>
-        <MDBNavbarBrand href='#' id='logo'>Exclusive</MDBNavbarBrand>
+        <MDBNavbarBrand href='#' id='logo' className='mb-2'>Exclusive</MDBNavbarBrand>
         <MDBNavbarToggler
         className="navbar-toggler"
           type='button'
@@ -74,26 +74,26 @@ return (
           aria-label='Toggle navigation'
           onClick={() => setOpenNavColor(!openNavColor)}
         >
-          <MDBIcon icon='bars' fas />
+          <MDBIcon icon='bars' fas className='toggeler-icon' />
         </MDBNavbarToggler>
         <MDBCollapse open={openNavColor} navbar>
           <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-            <MDBNavbarItem  className='mx-4'>
+            <MDBNavbarItem  className='mx-4 mb-2'>
               <Link aria-current='page' to='/'  className={`item ${activeItem === 'home' ? 'active' : ''}`}
                 onClick={() => handleItemClick('home')} >
                 Home
               </Link>
             </MDBNavbarItem>
-            <MDBNavbarItem className='mx-4'>
+            <MDBNavbarItem className='mx-4 mb-2'>
               <Link to='/contact' className={`item ${activeItem === 'contact' ? 'active' : ''}`}
                 onClick={() => handleItemClick('contact')} >Contact</Link>
             </MDBNavbarItem>
-            <MDBNavbarItem className='mx-4' >
+            <MDBNavbarItem className='mx-4 mb-2' >
               <Link to='/about'  className={`item ${activeItem === 'about' ? 'active' : ''}`}
                 onClick={() => handleItemClick('about')}>About</Link>
             </MDBNavbarItem>
 
-            <MDBNavbarItem className='mx-4'>
+            <MDBNavbarItem className='mx-4 mb-2'>
               <Link to='/signup'  className={`item ${activeItem === 'signup' ? 'active' : ''}`}
                 onClick={() => handleItemClick('signup')} >Sign up</Link>
             </MDBNavbarItem >
@@ -108,11 +108,11 @@ return (
         </>
       )} */}
             
-            <form className='d-flex input-group w-auto form-search'>
+            <form className='d-flex input-group w-auto form-search mb-2'>
               <input type='search' className='form-control' placeholder='What are you looking for?' aria-label='Search' id='search-input' />
               <MDBIcon fas icon="search" className='icon-search'/>
             </form>
-            <MDBNavbarItem className='icons'>
+            <MDBNavbarItem className='icons mb-2'>
                  <Link to='/wishlist' className='icon-link'><MDBIcon far icon="heart" className="heart-icon" current-count={wishlistCount}  /></Link>
                  <Link to='/cart' className='icon-link'> <MDBIcon fas icon="shopping-cart" className='heart-icon'  current-count={cartCount} /></Link>
                 
@@ -130,7 +130,7 @@ return (
 
           <div className='line'>
           <MDBIcon fas icon="shopping-bag" className='icon-line' />
-            <span>My Order</span>
+          <Link to='/cart' className='link-list'><span >My Order</span></Link> 
           </div>
 
           <div className='line'>
