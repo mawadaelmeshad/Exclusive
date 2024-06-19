@@ -2,10 +2,14 @@ import { MDBTable, MDBTableBody, MDBTableHead } from "mdb-react-ui-kit";
 import './css-components/cart.css';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-function Cart({ handleAddToCart }){
+import swal from "sweetalert";
+import { useNavigate } from 'react-router-dom';
+const Cart = ({ handleAddToCart }) => {
 
         const [products, setProducts] = useState([]);
         const [productIds, setProductIds] = useState([]);
+        
+        const navigate = useNavigate();
     
         useEffect(() => {
             // Retrieve the array of product IDs from localStorage
@@ -67,6 +71,15 @@ function Cart({ handleAddToCart }){
             setProducts([]);
             localStorage.removeItem("idCart");
         }
+
+        const processCheck = (e) => {
+            e.preventDefault();
+            if (window.localStorage.getItem('token') != null) {
+                navigate('/checkout');
+            } else {
+                swal("Please login to continue!");
+            }
+        };
     return(
         <div className="cart-container">
                <div className="top">
@@ -134,7 +147,7 @@ function Cart({ handleAddToCart }){
             <div className="contain-btns">
              <form>
             
-                <Link to='/checkout'><button className='orange-btn'>Procees to checkout</button></Link>
+               <button className='orange-btn' onClick={processCheck}>Procees to checkout</button>
              </form>
             
 

@@ -21,11 +21,11 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-left: -4rem;
-    width: 100%;
+    margin-left: 2rem;
+    width: 80vw;
 }
 .wishlist .top p{
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
    color: black;
 }
 .wishlist .view-btn{
@@ -33,7 +33,7 @@
     left: 64%;
     top: -84%; */
     width: 10rem;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     /* margin-right: 6rem; */
     margin-bottom: 4rem;
 }
@@ -134,4 +134,23 @@
     }
  
    
+}
+@media(max-width:990px){
+    .wishlist{
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    
+
+}
+@media(max-width :640px){
+    .wishlist{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .wishlist .top{
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+    }
 }

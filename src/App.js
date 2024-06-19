@@ -16,6 +16,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
+import Protectedroutes from './Components/Protectedroutes';
 function App() {
   const [cartCount, setCartCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
@@ -73,13 +74,15 @@ function App() {
         
 
           </Route>
+        <Route element={<Protectedroutes />}>
+          <Route path='/profile' element={<Profile/>} />
+          <Route path='/checkout' element={<Checkout />} />
+        </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/checkout' element={<Checkout />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/profile' element={<Profile/>} />
         <Route path='/wishlist' element={<Wishlist handleAddToCart={handleAddToCart} />} />
 
         

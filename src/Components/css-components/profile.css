@@ -16,7 +16,7 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 88vw;
+    width: 81vw;
 }
 .profile-container .top .p2{
     padding-left: 1rem;
@@ -146,8 +146,8 @@ text-transform: capitalize;
 }
 @media(max-width :640px){
     .profile-container  .top{
-        padding-left: 1rem;
-        margin-right: 1rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
     }
     .profile .form-profile{
        width: 30rem;
